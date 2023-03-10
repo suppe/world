@@ -1,0 +1,6 @@
+@use 'fonts';
+
+body {
+  margin: 0;
+  @include fonts.font-normal();
+}

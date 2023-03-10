@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+//font weights
+$font-weight-thin: 300;
+$font-weight-normal: 600;
+$font-weight-bold: 800;
+
+//font sizes
+$font-size-normal: 14px;
+$font-size-detail: 16px;
+
+
+//fonts
+@mixin font-normal($size: $font-size-normal) {
+  font-family: "Nunito Sans";
+  font-size: $size;
+  font-weight: $font-weight-normal;
+}
+
+@mixin font-light($size: $font-size-normal) {
+  @include font-normal();
+  font-weight: $font-weight-light;
+}
+
+@mixin font-bold($size: $font-size-normal) {
+  @include font-normal();
+  font-weight: $font-weight-bold;
+}
