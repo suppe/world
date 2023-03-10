@@ -1,0 +1,23 @@
+//general colors
+$color-white: #FFFFFF;
+
+//dark mode colors
+$color-dark-blue: #2B3845;
+$color-very-dark-blue-background: #202C36;
+
+//light mode colors
+$color-very-dark-blue-text: #111517;
+$color-dark-gray: #848484;
+$color-very-light-gray: #F9F9F9;
+
+
+//color themes
+@mixin dark-mode() {
+  background: $color-very-dark-blue-background;
+  color: $color-white;
+}
+
+@mixin light-mode($size: $font-size-normal) {
+  background: $color-very-light-gray;
+  color: $color-very-dark-blue-text;
+}
