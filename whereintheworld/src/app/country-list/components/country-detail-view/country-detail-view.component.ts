@@ -11,6 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class CountryDetailViewComponent implements OnInit {
   country: Country;
+  nativeNames: string[];
 
   constructor(private route: ActivatedRoute, private countryService: CountryService) {}
 
@@ -18,8 +19,7 @@ export class CountryDetailViewComponent implements OnInit {
     this.countryService.getCountryByName(this.route.snapshot.paramMap.get('id'))
       .subscribe((countries: Country[]) => {
         this.country = countries.find(() => true);
-        console.log(countries[0].currencies);
-        console.log(countries[0].languages);
+        this.nativeNames = Object.values(this.country.name.nativeName).map(names => names.common);
       });
 
   }

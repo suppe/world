@@ -12,7 +12,7 @@
         <div class="details-column">
           <div class="details">
             <span>Native Name:</span>
-            <span class="content-text">{{country?.name.common}}</span>
+            <span class="content-text" *ngFor="let name of nativeNames; let last = last">{{name}}<span *ngIf="!last">, </span></span>
           </div>
           <div class="details">
             <span>Population:</span>
