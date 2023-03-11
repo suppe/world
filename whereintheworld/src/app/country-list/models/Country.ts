@@ -1,0 +1,28 @@
+import {Currency} from './Currency';
+
+export interface Country {
+  name: CountryName;
+  population: number;
+  flags: CountryFlags;
+  region: string;
+  subregion: string;
+  capital: string[];
+  tld: string[];
+  currencies: Currency[];
+  languages: string[];
+  borders: string[];
+}
+
+interface CountryName {
+  common: string;
+  official: string;
+}
+
+interface CountryFlags {
+  alt: string;
+  png: string;
+  svg: string;
+}
+
+
+

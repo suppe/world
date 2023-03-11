@@ -1,0 +1,6 @@
+<div id="container">
+  <div *ngFor="let country of (countries$ | async)" >
+    <app-country-list-item [country]="country" id="list-item"></app-country-list-item>
+  </div>
+
+</div>
