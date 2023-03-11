@@ -1,0 +1,21 @@
+@use "../../../theme/colors";
+@use "../../../theme/variables";
+
+:host {
+  #container {
+    padding: 50px 100px 200px 100px;
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 80px;
+    background: colors.$color-very-light-gray;
+  }
+
+  #list-item {
+    width: 300px;
+    cursor: pointer;
+  }
+}
