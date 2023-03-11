@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header/header.component';
+import { CountryListViewComponent } from './country-list/components/country-list-view/country-list-view.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CountryListViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
