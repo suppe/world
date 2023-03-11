@@ -1,8 +1,7 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CountryService} from '../../services/country.service';
 import {Country} from '../../models/Country';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-country-detail-view',
