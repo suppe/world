@@ -17,7 +17,7 @@ $color-very-light-gray: #F9F9F9;
   color: $color-white;
 }
 
-@mixin light-mode($size: $font-size-normal) {
-  background: $color-very-light-gray;
+@mixin light-mode() {
+  background: $color-white;
   color: $color-very-dark-blue-text;
 }
