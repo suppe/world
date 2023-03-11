@@ -1,1 +1,62 @@
-<p>country-detail-view works!</p>
+<div id="container">
+  <div id="navbar">
+    <button class="default" routerLink="/list/"><ion-icon name="arrow-back-outline" id="icn-back"></ion-icon> Back</button>
+  </div>
+  <div id="content">
+    <div id="flag">
+      <img src="{{country?.flags?.svg}}">
+    </div>
+    <div id="content-detail">
+      <h3 id="title">{{country?.name.common}}</h3>
+      <div id="content-detail-horizontal">
+        <div class="details-column">
+          <div class="details">
+            <span>Native Name:</span>
+            <span class="content-text">{{country?.name.common}}</span>
+          </div>
+          <div class="details">
+            <span>Population:</span>
+            <span class="content-text">{{country?.population | number:'1.0':'en-US'}}</span>
+          </div>
+          <div class="details">
+            <span>Region:</span>
+            <span class="content-text">{{country?.region}}</span>
+          </div>
+          <div class="details">
+            <span>Sub Region:</span>
+            <span class="content-text">{{country?.subregion}}</span>
+          </div>
+          <div class="details">
+            <span>Capital:</span>
+            <span class="content-text">{{country?.capital}}</span>
+          </div>
+        </div>
+        <div class="details-column">
+          <div class="details">
+            <span>Top Level Domain:</span>
+            <span class="content-text">{{country?.tld}}</span>
+          </div>
+          <div class="details">
+            <span>Currencies:</span>
+            <span class="content-text" *ngFor="let currency of country?.currencies | keyvalue; let last = last">
+              {{currency.value.name}}<span *ngIf="!last">, </span>
+            </span>
+          </div>
+          <div class="details">
+            <span>Languages:</span>
+            <span class="content-text" *ngFor="let language of country?.languages | keyvalue; let last = last">
+              {{language.value}}<span *ngIf="!last">, </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div id="border-countries" *ngIf="country?.borders?.length > 0">
+        Border Countries:
+        <div *ngFor="let border of country?.borders" id="borders">
+          <button class="small btn-border-countries">{{border}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

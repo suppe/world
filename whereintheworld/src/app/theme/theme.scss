@@ -1,6 +1,29 @@
 @use 'fonts';
+@use 'colors';
 
 body {
   margin: 0;
   @include fonts.font-normal();
+}
+
+button.default {
+  height: 40px;
+  border-radius: 5px;
+  padding: 0 30px;
+  font-size: 16px;
+  background: colors.$color-white;
+  -webkit-box-shadow: 0px 0px 4px 2px #efefef;
+  -moz-box-shadow: 0px 0px 4px 2px #efefef;
+  box-shadow: 0px 0px 4px 2px #efefef;
+}
+
+button.small {
+  height: 30px;
+  border-radius: 3px;
+  padding: 0 30px;
+  font-size: 13px;
+  background: colors.$color-white;
+  -webkit-box-shadow: 0px 0px 2px 1px #efefef;
+  -moz-box-shadow: 0px 0px 2px 1px #efefef;
+  box-shadow: 0px 0px 2px 1px #efefef;
 }
