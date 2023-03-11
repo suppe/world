@@ -19,6 +19,7 @@ export class CountryListViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.countries$ = this.countryService.getCountries();
+    this.countryService.getCountries().subscribe(x => console.log(x));
   }
 
 }

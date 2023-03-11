@@ -16,6 +16,7 @@ export interface Country {
 interface CountryName {
   common: string;
   official: string;
+  nativeName: { [name: string]: { official: string, common: string } };
 }
 
 interface CountryFlags {
