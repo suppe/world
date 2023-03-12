@@ -11,6 +11,7 @@ export interface Country {
   currencies: Currency[];
   languages: string[];
   borders: string[];
+  fifa: string;
 }
 
 interface CountryName {
