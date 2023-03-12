@@ -27,3 +27,31 @@ button.small {
   -moz-box-shadow: 0px 0px 2px 1px #efefef;
   box-shadow: 0px 0px 2px 1px #efefef;
 }
+
+input.search {
+  padding: 0px 40px;
+  height: 60px;
+  background: colors.$color-white;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px 2px #efefef;
+  -moz-box-shadow: 0px 0px 4px 2px #efefef;
+  box-shadow: 0px 0px 4px 2px #efefef;
+}
+
+select.search {
+  padding: 0px 20px;
+  height: 60px;
+  background: colors.$color-white;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px 2px #efefef;
+  -moz-box-shadow: 0px 0px 4px 2px #efefef;
+  box-shadow: 0px 0px 4px 2px #efefef;
+  border-right: 20px solid transparent;
+  cursor: pointer;
+}
+
+input, select:focus{
+  outline: none;
+}

@@ -3,19 +3,41 @@
 
 :host {
   #container {
-    padding: 50px 100px 200px 100px;
+    height: 100%;
+    background: colors.$color-very-light-gray;
+  }
+
+  #filter-bar {
+    height: 150px;
+    width: 100%;
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #content {
+    padding: 50px 89px 200px 100px;
+    height: calc(100% - 230px);
     overflow: auto;
-    height: calc(100% - 80px);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
     row-gap: 80px;
-    background: colors.$color-very-light-gray;
   }
 
   #list-item {
     width: 300px;
     cursor: pointer;
+  }
+
+  input.search {
+    width: 500px;
+  }
+
+  select.search {
+    width: 205px;
   }
 }

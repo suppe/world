@@ -1,6 +1,18 @@
 <div id="container">
-  <div *ngFor="let country of (countries$ | async)" >
-    <app-country-list-item routerLink="/detail/{{country.name.official}}" [country]="country" id="list-item"></app-country-list-item>
+  <div id="filter-bar">
+    <input [formControl]="inputFilter" class="search" placeholder="Search for a country..." type="text"/>
+    <select [formControl]="selectFilter" class="search" id="region" name="regions">
+      <option selected value="">Filter by Region</option>
+      <option *ngFor="let option of regionOptions"
+              [value]="option">
+        {{option | titlecase}}
+      </option>
+    </select>
   </div>
-
+  <div id="content">
+    <div *ngFor="let country of (filteredCountries$ | async)">
+      <app-country-list-item [country]="country" id="list-item"
+                             routerLink="/detail/{{country.name.official}}"></app-country-list-item>
+    </div>
+  </div>
 </div>
