@@ -6,8 +6,16 @@
   #container {
     padding: 20px 100px;
     font-size: fonts.$font-size-detail;
+    background: colors.$color-very-light-gray;
+    height: 100%;
+    @include colors.light-mode();
   }
 
+  #container.dark-theme {
+    background: colors.$color-very-dark-blue-background;
+    @include colors.dark-mode;
+  }
+  
   #navbar {
     margin: 50px 0 70px 0;
   }

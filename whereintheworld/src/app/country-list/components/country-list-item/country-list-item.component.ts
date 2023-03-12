@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Country } from '../../models/Country';
+import { CountryModel } from '../../models/country.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-country-list-item',
@@ -7,5 +8,6 @@ import { Country } from '../../models/Country';
   styleUrls: ['./country-list-item.component.scss'],
 })
 export class CountryListItemComponent {
-  @Input() country: Country;
+  @Input() country: CountryModel;
+  @Input() isDarkTheme$: Observable<boolean>;
 }

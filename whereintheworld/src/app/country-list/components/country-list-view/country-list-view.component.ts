@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
-import { Country } from '../../models/Country';
+import { CountryModel } from '../../models/country.model';
 import { combineLatest, Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
@@ -13,12 +13,12 @@ import { DarkmodeService } from '../../../shared/services/darkmode.service';
 })
 export class CountryListViewComponent implements OnInit {
   regionOptions = ['africa', 'america', 'asia', 'europe', 'oceania'];
-  countries$: Observable<Country[]>;
+  countries$: Observable<CountryModel[]>;
   inputFilter$: Observable<string>;
   selectFilter$: Observable<string>;
   inputFilter: FormControl;
   selectFilter: FormControl;
-  filteredCountries$: Observable<Country[]>;
+  filteredCountries$: Observable<CountryModel[]>;
   isDarkTheme$: Observable<boolean>;
 
   constructor(
@@ -50,9 +50,9 @@ export class CountryListViewComponent implements OnInit {
   }
 
   private filterCountriesByName(
-    countries: Country[],
+    countries: CountryModel[],
     filter: string
-  ): Country[] {
+  ): CountryModel[] {
     return countries.filter(
       (country) =>
         country.name.common.toLowerCase().indexOf(filter.toLowerCase()) !== -1
@@ -60,9 +60,9 @@ export class CountryListViewComponent implements OnInit {
   }
 
   private filterCountriesByRegion(
-    countries: Country[],
+    countries: CountryModel[],
     filter: string
-  ): Country[] {
+  ): CountryModel[] {
     return countries.filter(
       (country) =>
         country.region.toLowerCase().indexOf(filter.toLowerCase()) !== -1

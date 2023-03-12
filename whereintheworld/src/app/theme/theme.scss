@@ -23,6 +23,7 @@ button.small {
   border-radius: 3px;
   padding: 0 30px;
   font-size: 13px;
+  color: black;
   background: colors.$color-white;
   -webkit-box-shadow: 0px 0px 2px 1px #efefef;
   -moz-box-shadow: 0px 0px 2px 1px #efefef;
@@ -54,9 +55,21 @@ button.defaultDark {
   font-size: 16px;
   background: colors.$color-dark-blue;
   color: colors.$color-white;
-  -webkit-box-shadow: 0px 0px 4px 2px #efefef;
-  -moz-box-shadow: 0px 0px 4px 2px #efefef;
-  box-shadow: 0px 0px 4px 2px #efefef;
+  -webkit-box-shadow: 0px 0px 4px 2px #252525;
+  -moz-box-shadow: 0px 0px 4px 2px #252525;
+  box-shadow: 0px 0px 4px 2px #252525;
+}
+
+button.smallDark {
+  height: 30px;
+  border-radius: 3px;
+  padding: 0 30px;
+  font-size: 13px;
+  background: colors.$color-dark-blue;
+  color: colors.$color-white;
+  -webkit-box-shadow: 0px 0px 4px 2px #252525;
+  -moz-box-shadow: 0px 0px 4px 2px #252525;
+  box-shadow: 0px 0px 4px 2px #252525;
 }
 
 input.search {
@@ -70,6 +83,17 @@ input.search {
   box-shadow: 0px 0px 4px 2px #efefef;
 }
 
+input.searchDark {
+  padding: 0px 40px;
+  height: 60px;
+  background: colors.$color-dark-blue;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px 2px #252525;
+  -moz-box-shadow: 0px 0px 4px 2px #252525;
+  box-shadow: 0px 0px 4px 2px #252525;
+}
+
 select.search {
   padding: 0px 20px;
   height: 60px;
@@ -79,6 +103,20 @@ select.search {
   -webkit-box-shadow: 0px 0px 4px 2px #efefef;
   -moz-box-shadow: 0px 0px 4px 2px #efefef;
   box-shadow: 0px 0px 4px 2px #efefef;
+  border-right: 20px solid transparent;
+  cursor: pointer;
+}
+
+select.searchDark {
+  padding: 0px 20px;
+  height: 60px;
+  background: colors.$color-dark-blue;
+  color: colors.$color-white;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px 2px #252525;
+  -moz-box-shadow: 0px 0px 4px 2px #252525;
+  box-shadow: 0px 0px 4px 2px #252525;
   border-right: 20px solid transparent;
   cursor: pointer;
 }

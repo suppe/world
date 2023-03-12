@@ -1,5 +1,5 @@
 <div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="container">
-  <div id="header">
+  <div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="header">
     <div id="content">
       <h3 id="title" routerLink="/list">Where in the world?</h3>
       <button (click)="toggleDarkTheme()" [ngClass]="{'noborderDark': isDarkTheme$ | async}"

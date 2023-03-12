@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Country } from '../models/Country';
+import { CountryModel } from '../models/country.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,13 +11,13 @@ export class CountryService {
 
   constructor(private http: HttpClient) {}
 
-  getCountries(): Observable<Country[]> {
-    return this.http.get(this.baseURL + 'all/') as Observable<Country[]>;
+  getCountries(): Observable<CountryModel[]> {
+    return this.http.get(this.baseURL + 'all/') as Observable<CountryModel[]>;
   }
 
-  getCountryByName(name: string): Observable<Country[]> {
+  getCountryByName(name: string): Observable<CountryModel[]> {
     return this.http.get(this.baseURL + 'name/' + name) as Observable<
-      Country[]
+      CountryModel[]
     >;
   }
 }

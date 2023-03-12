@@ -1,6 +1,6 @@
-import { Currency } from './Currency';
+import { CurrencyModel } from './currency.model';
 
-export interface Country {
+export interface CountryModel {
   name: CountryName;
   population: number;
   flags: CountryFlags;
@@ -8,7 +8,7 @@ export interface Country {
   subregion: string;
   capital: string[];
   tld: string[];
-  currencies: Currency[];
+  currencies: CurrencyModel[];
   languages: string[];
   borders: string[];
   fifa: string;
