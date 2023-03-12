@@ -1,6 +1,9 @@
 <div id="container">
   <div id="filter-bar">
-    <input [formControl]="inputFilter" class="search" placeholder="Search for a country..." type="text"/>
+    <div id="input-container">
+      <ion-icon id="icn-search" name="search"></ion-icon>
+      <input [formControl]="inputFilter" class="search" placeholder="Search for a country..." type="text"/>
+    </div>
     <select [formControl]="selectFilter" class="search" id="region" name="regions">
       <option selected value="">Filter by Region</option>
       <option *ngFor="let option of regionOptions"

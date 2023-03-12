@@ -1,5 +1,6 @@
 @use '../../../theme/colors';
 @use '../../../theme/fonts';
+@use '../../../theme/variables';
 
 :host {
   #container {
@@ -28,8 +29,6 @@
   img {
     border-radius: 5px 5px 0 0;
     object-fit: cover;
-    height: 200px;
-    width: 300px;
   }
 
   h4 {
@@ -39,5 +38,13 @@
 
   .content-text {
     font-weight: fonts.$font-weight-thin;
+  }
+
+  @media only screen and (max-width: variables.$mobile-width) {
+    #container {
+      width: 100%;
+      height: auto;
+      padding-bottom: 20px;
+    }
   }
 }

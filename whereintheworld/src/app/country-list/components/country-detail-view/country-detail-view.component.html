@@ -55,7 +55,7 @@
         </div>
       </div>
       <div *ngIf="selectedCountry?.borders?.length > 0" id="border-countries">
-        Border Countries:
+        <label id="border-title">Border Countries:</label>
         <div *ngFor="let border of selectedCountry?.borders" id="borders">
           <button *ngIf="((border | fifacodetoname: countries) != null)"
                   [routerLink]="['/detail/', (border | fifacodetoname: countries)]"
