@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../models/Country';
 import { combineLatest, Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
+import { DarkmodeService } from '../../../shared/services/darkmode.service';
 
 @Component({
   selector: 'app-country-list-view',
   templateUrl: './country-list-view.component.html',
   styleUrls: ['./country-list-view.component.scss'],
 })
-export class CountryListViewComponent {
+export class CountryListViewComponent implements OnInit {
   regionOptions = ['africa', 'america', 'asia', 'europe', 'oceania'];
   countries$: Observable<Country[]>;
   inputFilter$: Observable<string>;
@@ -18,8 +19,12 @@ export class CountryListViewComponent {
   inputFilter: FormControl;
   selectFilter: FormControl;
   filteredCountries$: Observable<Country[]>;
+  isDarkTheme$: Observable<boolean>;
 
-  constructor(private countryService: CountryService) {
+  constructor(
+    private countryService: CountryService,
+    private darkModeService: DarkmodeService
+  ) {
     this.countries$ = this.countryService.getCountries();
     this.inputFilter = new FormControl('');
     this.selectFilter = new FormControl('');
@@ -38,6 +43,10 @@ export class CountryListViewComponent {
         )
       )
     );
+  }
+
+  ngOnInit(): void {
+    this.isDarkTheme$ = this.darkModeService.isDarkTheme;
   }
 
   private filterCountriesByName(

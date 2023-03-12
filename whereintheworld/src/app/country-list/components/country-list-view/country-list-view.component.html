@@ -1,4 +1,4 @@
-<div id="container">
+<div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="container">
   <div id="filter-bar">
     <div id="input-container">
       <ion-icon id="icn-search" name="search"></ion-icon>

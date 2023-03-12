@@ -1,8 +1,12 @@
-<div id="container">
+<div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="container">
   <div id="header">
     <div id="content">
       <h3 id="title" routerLink="/list">Where in the world?</h3>
-      <div id="darkmode"><ion-icon name="moon-outline" id="icn-moon"></ion-icon><span>Light Mode</span></div>
+      <button (click)="toggleDarkTheme()" [ngClass]="{'noborderDark': isDarkTheme$ | async}"
+              class="noborder" id="darkmode">
+        <ion-icon *ngIf="isDarkTheme$ | async" class="icn-moon" id="icn-moon-dark" name="moon-outline"></ion-icon>
+        <ion-icon *ngIf="!(isDarkTheme$ | async)" class="icn-moon" id="icn-moon-light" name="moon"></ion-icon>
+        <span>Dark Mode</span></button>
     </div>
   </div>
 

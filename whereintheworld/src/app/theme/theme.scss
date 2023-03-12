@@ -12,6 +12,7 @@ button.default {
   padding: 0 30px;
   font-size: 16px;
   background: colors.$color-white;
+  color: black;
   -webkit-box-shadow: 0px 0px 4px 2px #efefef;
   -moz-box-shadow: 0px 0px 4px 2px #efefef;
   box-shadow: 0px 0px 4px 2px #efefef;
@@ -26,6 +27,36 @@ button.small {
   -webkit-box-shadow: 0px 0px 2px 1px #efefef;
   -moz-box-shadow: 0px 0px 2px 1px #efefef;
   box-shadow: 0px 0px 2px 1px #efefef;
+}
+
+button.noborder {
+  height: 40px;
+  border: none;
+  background: none;
+  color: black;
+  font-size: fonts.$font-size-detail;
+  font-weight: fonts.$font-weight-normal;
+}
+
+button.noborderDark {
+  height: 40px;
+  border: none;
+  background: none;
+  color: colors.$color-white;
+  font-size: fonts.$font-size-detail;
+  font-weight: fonts.$font-weight-normal;
+}
+
+button.defaultDark {
+  height: 40px;
+  border-radius: 5px;
+  padding: 0 30px;
+  font-size: 16px;
+  background: colors.$color-dark-blue;
+  color: colors.$color-white;
+  -webkit-box-shadow: 0px 0px 4px 2px #efefef;
+  -moz-box-shadow: 0px 0px 4px 2px #efefef;
+  box-shadow: 0px 0px 4px 2px #efefef;
 }
 
 input.search {
@@ -52,6 +83,6 @@ select.search {
   cursor: pointer;
 }
 
-input, select:focus{
+input, select:focus {
   outline: none;
 }

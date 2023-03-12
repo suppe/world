@@ -7,6 +7,10 @@
     background: colors.$color-very-light-gray;
   }
 
+  #container.dark-theme {
+    background: colors.$color-very-dark-blue-background;
+  }
+
   #filter-bar {
     height: 150px;
     width: 100%;
@@ -18,7 +22,7 @@
   }
 
   #content {
-    padding: 50px 89px 200px 100px;
+    padding: 50px 100px 200px 100px;
     height: calc(100% - 230px);
     overflow: auto;
     display: flex;
