@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountryListItemComponent } from './country-list/components/country-list-item/country-list-item.component';
 import { CountryDetailViewComponent } from './country-list/components/country-detail-view/country-detail-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FifaCodeToNamePipe } from './country-list/pipes/fifa-code-to-name.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CountryListViewComponent,
     CountryListItemComponent,
     CountryDetailViewComponent,
+    FifaCodeToNamePipe,
   ],
   imports: [
     BrowserModule,
