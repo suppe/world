@@ -9,6 +9,7 @@ import { CountryListViewComponent } from './country-list/components/country-list
 import { HttpClientModule } from '@angular/common/http';
 import { CountryListItemComponent } from './country-list/components/country-list-item/country-list-item.component';
 import { CountryDetailViewComponent } from './country-list/components/country-detail-view/country-detail-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,15 +17,16 @@ import { CountryDetailViewComponent } from './country-list/components/country-de
     HeaderComponent,
     CountryListViewComponent,
     CountryListItemComponent,
-    CountryDetailViewComponent
+    CountryDetailViewComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

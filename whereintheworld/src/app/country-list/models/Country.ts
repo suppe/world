@@ -1,4 +1,4 @@
-import {Currency} from './Currency';
+import { Currency } from './Currency';
 
 export interface Country {
   name: CountryName;
@@ -16,7 +16,7 @@ export interface Country {
 interface CountryName {
   common: string;
   official: string;
-  nativeName: { [name: string]: { official: string, common: string } };
+  nativeName: { [name: string]: { official: string; common: string } };
 }
 
 interface CountryFlags {
@@ -24,6 +24,3 @@ interface CountryFlags {
   png: string;
   svg: string;
 }
-
-
-
