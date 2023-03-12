@@ -49,5 +49,20 @@
     cursor: pointer;
   }
 
+  @media only screen and (max-width: variables.$mobile-width) {
+    #content {
+      padding: 0 20px 5px 20px;
+    }
+
+    #title {
+      font-weight: fonts.$font-weight-bold;
+      font-size: 15px;
+    }
+
+    #darkmode {
+      padding-top: 6px;
+    }
+  }
+
 }
 

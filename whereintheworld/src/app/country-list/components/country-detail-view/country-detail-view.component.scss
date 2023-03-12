@@ -1,5 +1,6 @@
 @use '../../../theme/colors';
 @use '../../../theme/fonts';
+@use '../../../theme/variables';
 
 :host {
   #container {
@@ -69,7 +70,11 @@
   }
 
   .btn-border-countries {
-    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #border-title {
+    margin-right: 10px;
   }
 
   .details-column {
@@ -82,5 +87,25 @@
     font-weight: fonts.$font-weight-bold;
     font-size: 30px;
     margin: 30px 0;
+  }
+
+  @media only screen and (max-width: variables.$mobile-width) {
+    #content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #flag {
+      width: 100%;
+    }
+
+    #container {
+      padding: 20px 20px;
+    }
+
+    #content-detail {
+      width: 100%;
+    }
   }
 }
