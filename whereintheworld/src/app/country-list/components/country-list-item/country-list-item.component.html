@@ -1,8 +1,8 @@
-<div id="container">
+<div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="container">
   <div id="flag">
     <img src="{{country.flags.svg}}">
   </div>
-  <div id="content">
+  <div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="content">
     <h4>{{country.name.common}}</h4>
     <div class="details">
       <span>Population:</span>

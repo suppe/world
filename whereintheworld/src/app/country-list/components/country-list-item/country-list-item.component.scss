@@ -3,6 +3,7 @@
 @use '../../../theme/variables';
 
 :host {
+  //Container
   #container {
     background: colors.$color-white;
     width: 300px;
@@ -13,6 +14,15 @@
     box-shadow: 0px 0px 4px 2px #efefef;
   }
 
+  #container.dark-theme {
+    -webkit-box-shadow: 0px 0px 4px 2px #252525;
+    -moz-box-shadow: 0px 0px 4px 2px #252525;
+    box-shadow: 0px 0px 4px 2px #252525;
+    background: colors.$color-dark-blue;
+  }
+
+
+  //Content Box
   #content {
     display: flex;
     flex-direction: column;
@@ -20,15 +30,30 @@
     gap: 5px;
   }
 
-  .details {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
+  #content.dark-theme {
+    color: colors.$color-white;
+  }
+
+
+  //Flag box
+  #flag {
+    height: 200px;
+    width: 100%;
   }
 
   img {
     border-radius: 5px 5px 0 0;
     object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+
+  //Details box
+  .details {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
   }
 
   h4 {
@@ -40,6 +65,7 @@
     font-weight: fonts.$font-weight-thin;
   }
 
+  //Media Query for Mobile View
   @media only screen and (max-width: variables.$mobile-width) {
     #container {
       width: 100%;

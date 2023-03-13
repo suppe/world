@@ -1,12 +1,17 @@
-@use '../theme/variables';
-@use '../theme/colors';
-@use '../theme/fonts';
+@use '../../../theme/variables';
+@use '../../../theme/colors';
+@use '../../../theme/fonts';
 
 :host {
+  //Container
   #container {
     width: 100%;
     height: 80px;
     @include colors.light-mode();
+  }
+
+  #container.dark-theme {
+    @include colors.dark-mode();
   }
 
   #header {
@@ -14,7 +19,16 @@
     -webkit-box-shadow: 0px 0px 4px 4px #efefef;
     -moz-box-shadow: 0px 0px 4px 4px #efefef;
     box-shadow: 0px 0px 4px 4px #efefef;
+  }
 
+  #header.dark-theme {
+    background: colors.$color-dark-blue;
+  }
+
+  #header.dark-theme {
+    -webkit-box-shadow: 0px 0px 4px 2px #252525;
+    -moz-box-shadow: 0px 0px 4px 2px #252525;
+    box-shadow: 0px 0px 4px 2px #252525;
   }
 
   #content {
@@ -24,31 +38,54 @@
     padding: 0 100px 5px 100px;
     align-items: center;
     height: 100%;
-    font-size: fonts.$font-size-detail;
   }
 
+
+  //Title
   #title {
     font-weight: fonts.$font-weight-bold;
     font-size: 24px;
-  }
-
-  #darkmode {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  #icn-moon {
-    width: 18px;
-    height: 18px;
   }
 
   h3 {
     cursor: pointer;
   }
 
+
+  //Darkmode Button
+  #darkmode {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 7px;
+  }
+
+  .icn-moon {
+    width: 18px;
+    height: 18px;
+  }
+
+  #icn-moon-dark {
+    color: colors.$color-white
+  }
+
+  #icn-moon-light {
+    color: black;
+  }
+
+
+  //Media Query for Mobile View (Tablet or smaller width)
+  @media only screen and (min-width: variables.$mobile-width) and (max-width: 600px) {
+    #title {
+      font-weight: fonts.$font-weight-bold;
+      font-size: 15px;
+    }
+  }
+
+
+  //Media Query for Mobile View
   @media only screen and (max-width: variables.$mobile-width) {
     #content {
       padding: 0 20px 5px 20px;
@@ -57,10 +94,6 @@
     #title {
       font-weight: fonts.$font-weight-bold;
       font-size: 15px;
-    }
-
-    #darkmode {
-      padding-top: 6px;
     }
   }
 

@@ -3,25 +3,51 @@
 @use '../../../theme/variables';
 
 :host {
+  //Container
   #container {
-    padding: 20px 100px;
     font-size: fonts.$font-size-detail;
+    background: colors.$color-very-light-gray;
+    height: 100%;
+    @include colors.light-mode();
   }
 
+  #container.dark-theme {
+    background: colors.$color-very-dark-blue-background;
+    @include colors.dark-mode;
+  }
+
+
+  //Navbar
   #navbar {
-    margin: 50px 0 70px 0;
+    padding: 70px 0 70px 100px;
   }
 
+  #icn-back {
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+
+  //Content box
   #content {
     display: flex;
     flex-direction: row;
     gap: 100px;
+    overflow: auto;
+    height: calc(100% - 260px);
+    width: 100%;
+    padding: 20px 100px 20px 0;
   }
 
+
+  //Flag box
   #flag {
     width: 50%;
+    padding: 20px 0 20px 100px;
   }
 
+
+  //Details box
   .details {
     display: flex;
     flex-direction: row;
@@ -34,7 +60,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 
   #content-detail-horizontal {
@@ -50,33 +75,6 @@
     font-weight: fonts.$font-weight-thin;
   }
 
-  #border-countries {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    row-gap: 10px;
-  }
-
-  #borders {
-    display: flex;
-    flex-direction: row;
-  }
-
-  #icn-back {
-    vertical-align: middle;
-    padding-bottom: 2px;
-  }
-
-  .btn-border-countries {
-    margin-right: 10px;
-  }
-
-  #border-title {
-    margin-right: 10px;
-  }
-
   .details-column {
     display: flex;
     flex-direction: column;
@@ -89,6 +87,33 @@
     margin: 30px 0;
   }
 
+
+  //Border box
+  #border-countries {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding-bottom: 40px;
+  }
+
+  #borders {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btn-border-countries {
+    margin-right: 10px;
+  }
+
+  #border-title {
+    margin-right: 10px;
+  }
+
+
+  //Media Query for Mobile View
   @media only screen and (max-width: variables.$mobile-width) {
     #content {
       display: flex;

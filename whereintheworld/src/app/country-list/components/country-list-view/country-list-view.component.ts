@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
-import { Country } from '../../models/Country';
+import { CountryModel } from '../../models/country.model';
 import { combineLatest, Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
+import { DarkmodeService } from '../../../shared/services/darkmode.service';
 
 @Component({
   selector: 'app-country-list-view',
   templateUrl: './country-list-view.component.html',
   styleUrls: ['./country-list-view.component.scss'],
 })
-export class CountryListViewComponent {
+export class CountryListViewComponent implements OnInit {
   regionOptions = ['africa', 'america', 'asia', 'europe', 'oceania'];
-  countries$: Observable<Country[]>;
+  countries$: Observable<CountryModel[]>;
   inputFilter$: Observable<string>;
   selectFilter$: Observable<string>;
   inputFilter: FormControl;
   selectFilter: FormControl;
-  filteredCountries$: Observable<Country[]>;
+  filteredCountries$: Observable<CountryModel[]>;
+  isDarkTheme$: Observable<boolean>;
 
-  constructor(private countryService: CountryService) {
+  constructor(
+    private countryService: CountryService,
+    private darkModeService: DarkmodeService
+  ) {
     this.countries$ = this.countryService.getCountries();
     this.inputFilter = new FormControl('');
     this.selectFilter = new FormControl('');
@@ -40,10 +45,14 @@ export class CountryListViewComponent {
     );
   }
 
+  ngOnInit(): void {
+    this.isDarkTheme$ = this.darkModeService.isDarkTheme;
+  }
+
   private filterCountriesByName(
-    countries: Country[],
+    countries: CountryModel[],
     filter: string
-  ): Country[] {
+  ): CountryModel[] {
     return countries.filter(
       (country) =>
         country.name.common.toLowerCase().indexOf(filter.toLowerCase()) !== -1
@@ -51,9 +60,9 @@ export class CountryListViewComponent {
   }
 
   private filterCountriesByRegion(
-    countries: Country[],
+    countries: CountryModel[],
     filter: string
-  ): Country[] {
+  ): CountryModel[] {
     return countries.filter(
       (country) =>
         country.region.toLowerCase().indexOf(filter.toLowerCase()) !== -1

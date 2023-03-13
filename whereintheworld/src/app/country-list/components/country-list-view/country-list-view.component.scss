@@ -2,11 +2,18 @@
 @use "../../../theme/variables";
 
 :host {
+  //Container
   #container {
     height: 100%;
     background: colors.$color-very-light-gray;
   }
 
+  #container.dark-theme {
+    background: colors.$color-very-dark-blue-background;
+  }
+
+
+  //Filter bar box
   #filter-bar {
     height: 150px;
     width: 100%;
@@ -15,22 +22,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  #content {
-    padding: 50px 89px 200px 100px;
-    height: calc(100% - 230px);
-    overflow: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-    row-gap: 80px;
-  }
-
-  #list-item {
-    width: 300px;
-    cursor: pointer;
   }
 
   input.search {
@@ -47,7 +38,7 @@
     width: 500px;
   }
 
-  #icn-search {
+  .icn-search {
     position: absolute;
     left: 25px;
     top: 20px;
@@ -56,6 +47,47 @@
     color: colors.$color-dark-gray;
   }
 
+  .icn-search.dark-theme {
+    color: colors.$color-white;
+  }
+
+
+  //Content box
+  #content {
+    padding: 50px 100px 200px 100px;
+    height: calc(100% - 230px);
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 80px;
+  }
+
+  #list-item {
+    width: 300px;
+    cursor: pointer;
+  }
+
+
+  //Media Query for Mobile View (Tablet or smaller width)
+  @media only screen and (min-width: variables.$mobile-width) and (max-width: 1000px) {
+    input.search {
+      width: auto;
+    }
+
+    #filter-bar {
+      padding-top: 35px;
+      flex-direction: column;
+      justify-content: start;
+      gap: 50px;
+      height: 250px;
+      align-items: start;
+    }
+  }
+
+
+  //Media Query for Mobile View
   @media only screen and (max-width: variables.$mobile-width) {
 
     #filter-bar {
@@ -65,16 +97,6 @@
       gap: 50px;
       height: 250px;
       align-items: start;
-    }
-
-    #content {
-      padding: 5px 50px;
-      justify-content: space-between;
-      row-gap: 40px;
-    }
-
-    #list-item {
-      width: 100%;
     }
 
     input.search {
@@ -90,6 +112,16 @@
     select.search {
       width: 100%;
       width: 200px;
+    }
+
+    #content {
+      padding: 5px 50px;
+      justify-content: space-between;
+      row-gap: 40px;
+    }
+
+    #list-item {
+      width: 100%;
     }
   }
 }
