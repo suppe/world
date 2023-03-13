@@ -4,6 +4,7 @@ import { CountryService } from '../../services/country.service';
 import { CountryModel } from '../../models/country.model';
 import { Observable, Subscription } from 'rxjs';
 import { DarkmodeService } from '../../../shared/services/darkmode.service';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-country-detail-view',
@@ -12,12 +13,11 @@ import { DarkmodeService } from '../../../shared/services/darkmode.service';
 })
 export class CountryDetailViewComponent implements OnInit, OnDestroy {
   selectedCountry: CountryModel;
-  countriesById$: Observable<CountryModel[]>;
-  id: string;
   countries: CountryModel[];
   nativeNames: string[];
   routerSub: Subscription;
   isDarkTheme$: Observable<boolean>;
+  name: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,23 +26,29 @@ export class CountryDetailViewComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.routerSub = this.route.params.subscribe((params) => {
-      this.countriesById$ = this.countryService.getCountryByName(params.id);
-      this.id = params.id;
-    });
-    // http unsubscribes/cleans itself
-    this.countriesById$.subscribe((countries: CountryModel[]) => {
-      this.selectedCountry = countries.find(
-        (country) => country.name.common === this.id
+    this.routerSub = this.route.params
+      .pipe(
+        switchMap((params) => {
+          this.name = params.id;
+          return this.countryService
+            .getCountryByName(params.id)
+            .pipe(
+              map((countries) =>
+                countries.filter(
+                  (countr: CountryModel) => countr.name.common === this.name
+                )
+              )
+            );
+        })
+      )
+      .subscribe(
+        (country) => (this.selectedCountry = country.find(() => true))
       );
-      this.nativeNames = Object.values(
-        this.selectedCountry.name.nativeName
-      ).map((names) => names.common);
-    });
     this.countryService
       .getCountries()
       .subscribe((countries) => (this.countries = countries));
     this.isDarkTheme$ = this.darkModeService.isDarkTheme;
+    console.log(this.selectedCountry?.borders);
   }
 
   ngOnDestroy(): void {

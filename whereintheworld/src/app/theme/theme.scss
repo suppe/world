@@ -1,11 +1,14 @@
 @use 'fonts';
 @use 'colors';
 
+//Body
 body {
   margin: 0;
   @include fonts.font-normal();
 }
 
+
+//Buttons
 button.default {
   height: 40px;
   border-radius: 5px;
@@ -72,6 +75,8 @@ button.smallDark {
   box-shadow: 0px 0px 4px 2px #252525;
 }
 
+
+//Inputs
 input.search {
   padding: 0px 40px;
   height: 60px;
@@ -83,10 +88,15 @@ input.search {
   box-shadow: 0px 0px 4px 2px #efefef;
 }
 
+input.search::placeholder {
+  color: colors.$color-dark-gray;
+}
+
 input.searchDark {
   padding: 0px 40px;
   height: 60px;
   background: colors.$color-dark-blue;
+  color: colors.$color-white;
   border: none;
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 4px 2px #252525;
@@ -94,6 +104,12 @@ input.searchDark {
   box-shadow: 0px 0px 4px 2px #252525;
 }
 
+input.searchDark::placeholder {
+  color: colors.$color-white;
+}
+
+
+//Selects
 select.search {
   padding: 0px 20px;
   height: 60px;

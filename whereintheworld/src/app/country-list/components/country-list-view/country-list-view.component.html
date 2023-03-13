@@ -1,7 +1,8 @@
 <div [ngClass]="{'dark-theme': isDarkTheme$ | async}" id="container">
   <div id="filter-bar">
     <div id="input-container">
-      <ion-icon id="icn-search" name="search"></ion-icon>
+      <ion-icon [ngClass]="{'dark-theme': isDarkTheme$ | async}" class="icn-search"
+                name="search"></ion-icon>
       <input [formControl]="inputFilter" [ngClass]="{'searchDark': isDarkTheme$ | async}" class="search"
              placeholder="Search for a country..." type="text"/>
     </div>
