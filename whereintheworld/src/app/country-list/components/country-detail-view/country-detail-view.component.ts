@@ -31,7 +31,7 @@ export class CountryDetailViewComponent implements OnInit, OnDestroy {
         switchMap((params) => {
           this.name = params.id;
           return this.countryService
-            .getCountryByName(params.id)
+            .getCountriesByName(params.id)
             .pipe(
               map((countries) =>
                 countries.filter(
@@ -48,7 +48,6 @@ export class CountryDetailViewComponent implements OnInit, OnDestroy {
       .getCountries()
       .subscribe((countries) => (this.countries = countries));
     this.isDarkTheme$ = this.darkModeService.isDarkTheme;
-    console.log(this.selectedCountry?.borders);
   }
 
   ngOnDestroy(): void {
