@@ -10,7 +10,8 @@ describe('DarkmodeService', () => {
     service = TestBed.inject(DarkmodeService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should toogle dark mode boolean from false to true', () => {
+    service.toggleDarkTheme();
+    service.isDarkTheme.subscribe((darkTheme) => expect(darkTheme).toBe(true));
   });
 });
