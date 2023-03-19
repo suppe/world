@@ -41,9 +41,12 @@ export class CountryDetailViewComponent implements OnInit, OnDestroy {
             );
         })
       )
-      .subscribe(
-        (country) => (this.selectedCountry = country.find(() => true))
-      );
+      .subscribe((country) => {
+        this.selectedCountry = country.find(() => true);
+        this.nativeNames = Object.values(
+          this.selectedCountry.name.nativeName
+        ).map((names) => names.common);
+      });
     this.countryService
       .getCountries()
       .subscribe((countries) => (this.countries = countries));
