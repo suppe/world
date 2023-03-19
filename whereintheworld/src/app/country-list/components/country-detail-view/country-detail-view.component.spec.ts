@@ -75,15 +75,15 @@ describe('CountryDetailViewComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have country', () => {
+  it('should have country, not be null', () => {
     expect(component.selectedCountry).not.toBeNull();
   });
 
-  it('should have country', () => {
+  it('should have country "Germany"', () => {
     expect(component.selectedCountry.name.common).toEqual('Germany');
   });
 
-  it('should have countries', () => {
+  it('should have countries, not be null', () => {
     expect(component.countries).not.toBeNull();
   });
 });
